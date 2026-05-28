@@ -8,8 +8,8 @@ const authMiddleware = require('../middleware/auth.middleware');
 const {
   createNoteController,
   readNoteController,
-  updateNoteController,
-  noteDeleteController
+  UpdateNoteController,
+  DeleteNoteController
 } = require('../controllers/note.controller');
 
 router.post(
@@ -29,13 +29,13 @@ router.patch(
   '/update/:id',
   authMiddleware,
   notesValidation,
-  updateNoteController
+  UpdateNoteController
 );
 
 router.delete(
   '/delete/:id',
   authMiddleware,
-  noteDeleteController
+  DeleteNoteController
 );
 
 module.exports = router;
