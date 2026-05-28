@@ -1,5 +1,5 @@
 const noteModel = require("../models/notes.model")
-const { noteCreationService , noteReadService} = require("../services/note.service")
+const { noteCreationService , noteReadService , noteUpdateService , noteDeleteService} = require("../services/note.service")
 const asyncHandler = require("../utils/asyncHandler")
 const ApiResponse = require('../utils/apiResponse')
 
