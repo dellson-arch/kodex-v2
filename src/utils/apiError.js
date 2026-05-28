@@ -2,7 +2,7 @@ class ApiError extends Error {
     constructor(statusCode , message){
         super(message)
 
-        this.statusCode = stausCode
+        this.statusCode = statusCode
         this.message = message
     }
 }
