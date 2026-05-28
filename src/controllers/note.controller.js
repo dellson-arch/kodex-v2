@@ -23,7 +23,15 @@ const UpdateNoteController = asyncHandler(async(req,res)=>{
   let result = await noteUpdateService(req.params , req.body);
 
   return res.status(200).json(
-   new ApiResponse("Notes fetched successfully", result)
+   new ApiResponse("Notes updated successfully", result)
+  )
+})
+
+const DeleteNoteController = asyncHandler(async(req,res)=>{
+  let result = await noteDeleteService(req.params);
+
+  return res.status(200).json(
+   new ApiResponse("Notes deleted successfully", result)
   )
 })
 
