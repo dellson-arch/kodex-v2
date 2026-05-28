@@ -1,10 +1,10 @@
 const noteModel = require("../models/notes.model")
-const { noteCreationService , noteReadService} = require("../services/notes.service")
+const { noteCreationService , noteReadService} = require("../services/note.service")
 const asyncHandler = require("../utils/asyncHandler")
 const ApiResponse = require('../utils/apiResponse')
 
 const createNoteController = asyncHandler(async(req,res)=>{
-  let result = await noteCreationService(req.body)
+  let result = await noteCreationService(req.body , req.user)
 
   return res.status(201).json(
     new ApiResponse("user" , "note created sucessfully")
