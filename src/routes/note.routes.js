@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const {notesValidation} = require('../middleware/validator.middleware')
-const {createNoteController} = require('../controllers/note.controller')
+const {createNoteController , readNoteController} = require('../controllers/note.controller')
 
 /**
  * @route POST /api/notes/create
@@ -10,5 +10,11 @@ const {createNoteController} = require('../controllers/note.controller')
  */
 router.post('/create' , notesValidation , createNoteController )
 
+/**
+ * @route GET /api/notes/read
+ * @description read all the notes
+ * @access public
+ */
+router.post('/read' , readNoteController )
 
 module.exports = router
