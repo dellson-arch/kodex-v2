@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const {notesValidation} = require('../middlewares/validator.middleware')
+const {notesValidation} = require('../middleware/validator.middleware')
 const {createNoteController} = require('../controllers/note.controller')
 
 /**

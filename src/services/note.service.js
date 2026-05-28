@@ -16,10 +16,12 @@ const noteCreationService = async (data) => {
   return newNote;
 };
 
+
 const noteReadService = async (data) => {
    const notes = await noteModel.find()
 
    return notes
 };
 
-module.exports = { registerService };
+module.exports = { noteCreationService , noteReadService};
+
