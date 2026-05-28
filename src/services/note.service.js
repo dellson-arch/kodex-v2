@@ -1,7 +1,7 @@
 const noteModel = require("../models/notes.model");
 const ApiError = require("../utils/apiError");
 
-const registerService = async (data) => {
+const noteCreationService = async (data) => {
   const { title, description } = data;
 
   if(!title || !description){
