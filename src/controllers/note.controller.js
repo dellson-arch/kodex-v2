@@ -1,5 +1,5 @@
 const noteModel = require("../models/notes.model")
-const { noteCreationService , noteReadService} = require("../services/note.service")
+const { noteCreationService , noteReadService , noteUpdateService , noteDeleteService} = require("../services/note.service")
 const asyncHandler = require("../utils/asyncHandler")
 const ApiResponse = require('../utils/apiResponse')
 
@@ -18,6 +18,23 @@ const readNoteController = asyncHandler(async(req,res)=>{
    new ApiResponse("Notes fetched successfully", result)
   )
 })
+
+const UpdateNoteController = asyncHandler(async(req,res)=>{
+  let result = await noteUpdateService(req.params , req.body);
+
+  return res.status(200).json(
+   new ApiResponse("Notes updated successfully", result)
+  )
+})
+
+const DeleteNoteController = asyncHandler(async(req,res)=>{
+  let result = await noteDeleteService(req.params);
+
+  return res.status(200).json(
+   new ApiResponse("Notes deleted successfully", result)
+  )
+})
+
 module.exports = {
     createNoteController
 }
