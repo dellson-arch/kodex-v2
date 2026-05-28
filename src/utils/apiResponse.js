@@ -5,3 +5,5 @@ class ApiResponse {
        this.data = data
     }
 }
+
+module.exports = ApiResponse
