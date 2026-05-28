@@ -16,4 +16,4 @@ const noteCreationService = async (data) => {
   return newNote;
 };
 
-module.exports = { registerService };
+module.exports = { noteCreationService };
