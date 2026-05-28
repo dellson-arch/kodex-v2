@@ -18,6 +18,15 @@ const readNoteController = asyncHandler(async(req,res)=>{
    new ApiResponse("Notes fetched successfully", result)
   )
 })
+
+const UpdateNoteController = asyncHandler(async(req,res)=>{
+  let result = await noteUpdateService(req.params , req.body);
+
+  return res.status(200).json(
+   new ApiResponse("Notes fetched successfully", result)
+  )
+})
+
 module.exports = {
     createNoteController
 }
