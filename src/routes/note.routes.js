@@ -1,20 +1,41 @@
-const express = require('express')
-const router = express.Router()
-const {notesValidation} = require('../middleware/validator.middleware')
-const {createNoteController , readNoteController} = require('../controllers/note.controller')
+const express = require('express');
+const router = express.Router();
 
-/**
- * @route POST /api/notes/create
- * @description create a new note need title and description
- * @access public
- */
-router.post('/create' , notesValidation , createNoteController )
+const { notesValidation } = require('../middleware/validator.middleware');
 
-/**
- * @route GET /api/notes/read
- * @description read all the notes
- * @access public
- */
-router.post('/read' , readNoteController )
+const authMiddleware = require('../middleware/auth.middleware');
 
-module.exports = router
+const {
+  createNoteController,
+  readNoteController,
+  updateNoteController,
+  noteDeleteController
+} = require('../controllers/note.controller');
+
+router.post(
+  '/create',
+  authMiddleware,
+  notesValidation,
+  createNoteController
+);
+
+router.get(
+  '/read',
+  authMiddleware,
+  readNoteController
+);
+
+router.patch(
+  '/update/:id',
+  authMiddleware,
+  notesValidation,
+  updateNoteController
+);
+
+router.delete(
+  '/delete/:id',
+  authMiddleware,
+  noteDeleteController
+);
+
+module.exports = router;
