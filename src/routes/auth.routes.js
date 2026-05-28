@@ -5,5 +5,4 @@ const {registerValidation} = require('../middleware/validator.middleware')
 
 router.post('/register' , registerValidation ,  registerController )
 
-
 module.exports = router
