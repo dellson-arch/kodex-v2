@@ -27,4 +27,16 @@ const notesValidation = [
     respondWithValidationResult
 ]
 
-module.exports = {notesValidation}
+const registerValidation = [
+    body('name')
+    .isString()
+    .withMessage("name is required"),
+
+    body('email')
+    .isString()
+    .withMessage("email is required"),
+  
+    respondWithValidationResult
+]
+
+module.exports = {notesValidation , registerValidation}
