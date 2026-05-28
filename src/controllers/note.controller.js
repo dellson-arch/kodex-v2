@@ -11,6 +11,13 @@ const createNoteController = asyncHandler(async(req,res)=>{
   )
 })
 
+const readNoteController = asyncHandler(async(req,res)=>{
+  let result = await noteReadService(req.body)
+
+  return res.status(201).json(
+    new ApiResponse("user" , "user registered sucessfully")
+  )
+})
 module.exports = {
     createNoteController
 }
